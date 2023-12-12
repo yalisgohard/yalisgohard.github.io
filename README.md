@@ -8,7 +8,7 @@ Bienvenue sur le dépôt GitHub de mon portfolio personnel, conçu dans le but d
 
 ## Accès au Portfolio
 
-Votre portfolio est accessible en ligne via GitHub Pages. [Cliquez ici pour visiter mon portfolio](yalisgohard.github.io).
+Votre portfolio est accessible en ligne via GitHub Pages. [Cliquez ici pour visiter mon portfolio](https://yalisgohard.github.io).
 
 ## Technologies Utilisées
 
