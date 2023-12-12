@@ -524,6 +524,7 @@ footer svg {
         display: flex;
         flex-flow: row wrap;
         height: fit-content;
+        align-items: center;
     }
 
     nav#main-nav span {
