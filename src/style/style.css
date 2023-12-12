@@ -547,12 +547,24 @@ footer svg {
         transform: translateX(-50%);
     }
 
-    
-    .container-titre, .container, .presentation, #container-contact {
+
+    .container-titre,
+    .container,
+    .presentation,
+    #container-contact {
         margin: 10px;
     }
 
     #container-contact {
         padding: 0;
+    }
+}
+
+/*--------------- dark mode ------------------- */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0d0618;
+        color: #fff;
     }
 }
