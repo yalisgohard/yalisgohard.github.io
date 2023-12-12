@@ -515,9 +515,7 @@ footer svg {
         z-index: 99;
         display: flex;
         flex-flow: column nowrap;
-        height: auto;
-        padding: 16px;
-        gap: 16px;
+        justify-content: space-evenly;
         height: 15vh;
     }
 
@@ -525,6 +523,7 @@ footer svg {
         top: 0;
         display: flex;
         flex-flow: row wrap;
+        height: fit-content;
     }
 
     nav#main-nav span {
@@ -540,7 +539,6 @@ footer svg {
     nav#main-nav div {
         width: min-content;
         position: relative;
-        flex-grow: 5;
         top: 0;
         bottom: none;
         left: 50%;
