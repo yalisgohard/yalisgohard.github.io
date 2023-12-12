@@ -548,7 +548,11 @@ footer svg {
     }
 
     
-.container-titre, .container, .presentation, #container-contact {
-    margin: 10px;
-}
+    .container-titre, .container, .presentation, #container-contact {
+        margin: 10px;
+    }
+
+    #container-contact {
+        padding: 0;
+    }
 }
