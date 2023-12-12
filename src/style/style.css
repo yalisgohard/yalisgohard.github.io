@@ -546,4 +546,9 @@ footer svg {
         left: 50%;
         transform: translateX(-50%);
     }
+
+    
+.container-titre, .container, .presentation, #container-contact {
+    margin: 10px;
+}
 }
