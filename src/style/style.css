@@ -547,6 +547,12 @@ footer svg {
         transform: translateX(-50%);
     }
 
+    .container-projets {
+        padding: 15px 15px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: auto;
+    }
 
     .container-titre,
     .container,
