@@ -196,3 +196,30 @@ button.active {
     font-weight: 500;
     font-size: larger;
 }
+
+@media (max-width: 768px) {
+
+    body {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100dvh;
+
+    }
+
+    header {
+        position: relative;
+    }
+
+    main {
+        margin: 0;
+        overflow-y: scroll;
+        width: 100%;
+        position: relative;
+    }
+
+    #meal-container,
+    #activities-container {
+        position: relative;
+    }
+}
