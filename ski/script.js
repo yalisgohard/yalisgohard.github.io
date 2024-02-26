@@ -65,10 +65,14 @@ function generateMealHTML(meal) {
     <div class="meal">
       <h3>${formattedDate}</h3>
       <h2>${meal.type}</h2>
-      <p>${meal.menu.entree}</p>
-      <p>${meal.menu.plat}</p>
-      <p>${meal.menu.accompagnement}</p>
-      <p>${meal.menu.dessert}</p>
+      ${meal.menu.entree != undefined ? `<p>${meal.menu.entree}</p>` : ""}
+      ${meal.menu.plat != undefined ? `<p>${meal.menu.plat}</p>` : ""}
+      ${
+        meal.menu.accompagnement != undefined
+          ? `<p>${meal.menu.accompagnement}</p>`
+          : ""
+      }
+      ${meal.menu.dessert != undefined ? `<p>${meal.menu.dessert}</p>` : ""}
     </div>
     `;
 }
