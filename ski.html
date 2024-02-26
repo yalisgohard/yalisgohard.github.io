@@ -18,16 +18,20 @@
       <h1>Prochains repas</h1>
       <nav>
         <button class="active" id="nextmealButton" onclick="afficheNextMeal()">
-          Prochains repas
+          Repas
         </button>
         <div class="separateurs">|</div>
         <button id="nextactivitiesButton" onclick="afficheNextActivites()">
-          Prochaines activités
+          Activités
+        </button>
+        <div class="separateurs">|</div>
+        <button id="navettesButton" onclick="afficheNavettes()">
+          Navettes
         </button>
         <div class="separateurs">|</div>
         <button>
           <a href="ski/val_cenis_plan_pistes.jpg" download="plan.jpg"
-            >Téléchargez le plan</a
+            >Le Plan</a
           >
         </button>
       </nav>
@@ -47,6 +51,43 @@
       <div id="activities-container">
         <div id="activitiesList"></div>
       </div>
+
+      <div id="navettes-container">
+        <!-- <nav id="sous-nav">
+          <button>Termignon - Lanslevillard</button>
+          <button>Lanslevillard - Termignon</button>
+        </nav>
+        <form>
+          <label for="arret">Choisir un arrêt</label>
+          <select name="arret" id="arret">
+            <option value="ecole">ecole</option>
+            <option value="pied_de_piste">pied_de_piste</option>
+            <option value="Edelweiss_Églises_Flambeau_Ramasse_Pharmacie">
+              Edelweiss_Églises_Flambeau_Ramasse_Pharmacie
+            </option>
+            <option value="Office_de_Tourisme">Office_de_Tourisme</option>
+            <option value="Pont_du_Folgoët">Pont_du_Folgoët</option>
+            <option value="Plan_des_Champs">Plan_des_Champs</option>
+            <option value="Télécabine_du_Vieux_Moulin">
+              Télécabine_du_Vieux_Moulin
+            </option>
+            <option value="École_de_Ski">École_de_Ski</option>
+            <option value="Mairie_Fromagerie_Pont_Abribus">
+              Mairie_Fromagerie_Pont_Abribus
+            </option>
+            <option value="Télécabine_Val_Cenis_le_Haut">
+              Télécabine_Val_Cenis_le_Haut
+            </option>
+            <option value="Terres_Grasses">Terres_Grasses</option>
+          </select>
+        </form> -->
+        <div id="navettesList">
+          <h2>Les navettes ne sont pas encore disponible sur ce site</h2>
+        </div>
+        <a href="ski/A4_LIGNE_C1_Hiver-23-24-1.pdf" target="_blank">
+          Cliquez ici pour consultez les horaires des navettes
+        </a>
+      </div>
     </main>
   </body>
   <script>
@@ -55,6 +96,7 @@
     const nextactivitiesButton = document.getElementById(
       "nextactivitiesButton"
     );
+    const navettesButton = document.getElementById("navettesButton");
 
     // meal container
 
@@ -68,20 +110,40 @@
 
     const activitiesContainer = document.getElementById("activities-container"); // activities container
 
+    // navettes container
+
+    const navettesContainer = document.getElementById("navettes-container"); // navettes container
+
     // affiche page header
 
     function afficheNextMeal() {
       nextmealButton.classList.add("active");
       nextactivitiesButton.classList.remove("active");
+      navettesButton.classList.remove("active");
       mealContainer.style.display = "flex";
       activitiesContainer.style.display = "none";
+      navettesContainer.style.display = "none";
+      changeURL("repas");
     }
 
     function afficheNextActivites() {
       nextactivitiesButton.classList.add("active");
       nextmealButton.classList.remove("active");
+      navettesButton.classList.remove("active");
       activitiesContainer.style.display = "block";
       mealContainer.style.display = "none";
+      navettesContainer.style.display = "none";
+      changeURL("activites");
+    }
+
+    function afficheNavettes() {
+      navettesButton.classList.add("active");
+      nextmealButton.classList.remove("active");
+      nextactivitiesButton.classList.remove("active");
+      navettesContainer.style.display = "block";
+      mealContainer.style.display = "none";
+      activitiesContainer.style.display = "none";
+      changeURL("navettes");
     }
 
     // affiche meal list
@@ -98,6 +160,27 @@
       nextmealElement.style.display = "block";
       mealListButton.style.display = "block";
       mealListButtonCache.style.display = "none";
+    }
+
+    // recup le get dans l'url pour afficher la page souhaité
+
+    const url = new URL(window.location.href);
+    const page = url.searchParams.get("page");
+
+    if (page === "activites") {
+      afficheNextActivites();
+    } else if (page === "navettes") {
+      afficheNavettes();
+    } else {
+      afficheNextMeal();
+    }
+
+    function changeURL(page) {
+      history.replaceState(
+        null,
+        "",
+        `http://127.0.0.1:5500/ski.html?page=${page}`
+      );
     }
   </script>
 </html>
