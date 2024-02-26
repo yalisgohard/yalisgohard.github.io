@@ -222,4 +222,8 @@ button.active {
     #activities-container {
         position: relative;
     }
+
+    .separateurs {
+        display: none;
+    }
 }
