@@ -48,6 +48,10 @@ nav {
     padding: 10px 0;
     text-align: center;
     box-shadow: rgb(17, 17, 17) 0px 0px 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 main {
@@ -209,6 +213,10 @@ button.active {
 
     header {
         position: relative;
+    }
+
+    nav {
+        display: block;
     }
 
     main {
