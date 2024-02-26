@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: grid;
+    place-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    margin-top: 20px;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    width: 100%;
+    top: 0;
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    padding: 0;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    box-shadow: 0 0 0 0 #111;
+}
+
+nav {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: rgb(17, 17, 17) 0px 0px 10px 0px;
+}
+
+main {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+button.active {
+    background-color: #555;
+}
+
+#meal-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mealListButton {
+    margin: 30px;
+}
+
+#mealListButtonCache {
+    display: none;
+    margin: 30px;
+}
+
+#mealList {
+    display: none;
+}
+
+#nextmeal {
+    display: flex;
+}
+
+#nextmeal,
+#mealList {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.meal {
+    margin-top: 20px;
+    width: 320px;
+    border: solid 1px #ddd;
+    border-radius: 25px;
+    padding: 25px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.33);
+    animation: enter 0.5s ease-in-out;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.meal h3 {
+    text-align: center;
+    margin-top: 0;
+    color: #111;
+}
+
+.meal p {
+    margin: 5px 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: larger;
+}
+
+#activities-container {
+    display: none;
+}
+
+#activitiesList {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.activity {
+    margin-top: 20px;
+    width: 320px;
+    border: solid 1px #ddd;
+    border-radius: 25px;
+    padding: 25px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.33);
+    animation: enter 0.5s ease-in-out;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.activity h3 {
+    text-align: center;
+    margin-top: 0;
+    color: #111;
+}
+
+.activity p {
+    margin: 5px 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: larger;
+}

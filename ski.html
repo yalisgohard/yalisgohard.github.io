@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prochains repas</title>
+    <script src="ski/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ski/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Prochains repas</h1>
+      <nav>
+        <button class="active" id="nextmealButton" onclick="afficheNextMeal()">
+          Prochains repas
+        </button>
+        |
+        <button id="nextactivitiesButton" onclick="afficheNextActivites()">
+          Prochaines activités
+        </button>
+        |
+        <button>
+          <a href="val_cenis_plan_pistes.jpg" download>Téléchargez le plan</a>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <div id="meal-container">
+        <div id="nextmeal"></div>
+        <div id="mealList"></div>
+        <button id="mealListButton" onclick="afficheMealList()">
+          voir plus de repas
+        </button>
+        <button id="mealListButtonCache" onclick="chacheMealList()">
+          voir moins de repas
+        </button>
+      </div>
+
+      <div id="activities-container">
+        <div id="activitiesList"></div>
+      </div>
+    </main>
+  </body>
+  <script>
+    // nav bar
+    const nextmealButton = document.getElementById("nextmealButton");
+    const nextactivitiesButton = document.getElementById(
+      "nextactivitiesButton"
+    );
+
+    // meal container
+
+    const mealContainer = document.getElementById("meal-container"); // meal container
+    const nextmealElement = document.getElementById("nextmeal"); // next meal
+    const mealListElement = document.getElementById("mealList"); // meal list
+    const mealListButton = document.getElementById("mealListButton"); // meal list button
+    const mealListButtonCache = document.getElementById("mealListButtonCache"); // meal list button cache
+
+    // activities container
+
+    const activitiesContainer = document.getElementById("activities-container"); // activities container
+
+    // affiche page header
+
+    function afficheNextMeal() {
+      nextmealButton.classList.add("active");
+      nextactivitiesButton.classList.remove("active");
+      mealContainer.style.display = "flex";
+      activitiesContainer.style.display = "none";
+    }
+
+    function afficheNextActivites() {
+      nextactivitiesButton.classList.add("active");
+      nextmealButton.classList.remove("active");
+      activitiesContainer.style.display = "block";
+      mealContainer.style.display = "none";
+    }
+
+    // affiche meal list
+
+    function afficheMealList() {
+      mealListElement.style.display = "flex";
+      nextmealElement.style.display = "none";
+      mealListButton.style.display = "none";
+      mealListButtonCache.style.display = "block";
+    }
+
+    function chacheMealList() {
+      mealListElement.style.display = "none";
+      nextmealElement.style.display = "block";
+      mealListButton.style.display = "block";
+      mealListButtonCache.style.display = "none";
+    }
+  </script>
+</html>
