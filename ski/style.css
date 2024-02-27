@@ -5,7 +5,7 @@ body {
     background-color: #f0f0f0;
     scroll-behavior: smooth;
     overflow-y: scroll;
-    background-image: url('background.jpg');
+    background-image: url('img/background.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -34,7 +34,7 @@ header {
     position: fixed;
     z-index: 999;
     padding: 0;
-    background-image: url('background.jpg');
+    background-image: url('img/background.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
