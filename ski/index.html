@@ -223,11 +223,11 @@
 
     // recup l'arrêt choisi dans le sens aller
 
-    const arretAller = document.getElementById("arretAller").value;
+    const arretAller = document.getElementById("arretAller");
     const arretAllerList = document.getElementById("arretAllerList");
 
     arretAller.addEventListener("change", (e) => {
-      fetchArretAller(arretAller);
+      fetchArretAller(arretAller.value);
     });
 
     function fetchArretAller(arret) {
@@ -270,8 +270,8 @@
   <script async>
     // recup le get dans l'url pour afficher la page souhaité
 
-    const url = new URL(window.location.href);
-    const page = url.searchParams.get("page");
+    let url = new URL(window.location.href);
+    let page = url.searchParams.get("page");
 
     if (page === "activites") {
       afficheNextActivites();
@@ -287,7 +287,7 @@
     let touchstartX = 0;
     let touchendX = 0;
 
-    const gestureZone = document.getElementById("nav");
+    const gestureZone = document.querySelector("body");
 
     gestureZone.addEventListener("touchstart", function (event) {
       touchstartX = event.changedTouches[0].screenX;
@@ -296,26 +296,36 @@
     gestureZone.addEventListener("touchend", function (event) {
       touchendX = event.changedTouches[0].screenX;
       handleGesture();
+      touchstartX = 0;
+      touchendX = 0;
+      url = new URL(window.location.href);
+      page = url.searchParams.get("page");
     });
 
     function handleGesture() {
-      if (touchendX <= touchstartX) {
-        if (page === "repas") {
-          afficheNextActivites();
-        } else if (page === "activites") {
-          afficheNavettes();
-        } else {
-          afficheNextMeal();
+      if (touchendX - touchstartX > 150) {
+        switch (page) {
+          case "navettes":
+            afficheNextActivites();
+            break;
+          case "activites":
+            afficheNextMeal();
+            break;
+          case "repas":
+            afficheNavettes();
+            break;
         }
-      }
-
-      if (touchendX >= touchstartX) {
-        if (page === "navettes") {
-          afficheNextActivites();
-        } else if (page === "activites") {
-          afficheNextMeal();
-        } else {
-          afficheNavettes();
+      } else if (touchendX - touchstartX < -150) {
+        switch (page) {
+          case "navettes":
+            afficheNextMeal();
+            break;
+          case "activites":
+            afficheNavettes();
+            break;
+          case "repas":
+            afficheNextActivites();
+            break;
         }
       }
     }
