@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Termignon 2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="icon" href="img/OIG4.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div id="titrePage">
+        <img src="img/OIG4.png" width="50px" alt="" />
+        <h1>Termignon 2024</h1>
+        <img src="img/OIG4.png" width="50px" alt="" />
+      </div>
+      <nav>
+        <button class="active" id="nextmealButton" onclick="afficheNextMeal()">
+          Repas
+        </button>
+        <div class="separateurs">|</div>
+        <button id="nextactivitiesButton" onclick="afficheNextActivites()">
+          Activités
+        </button>
+        <div class="separateurs">|</div>
+        <button id="navettesButton" onclick="afficheNavettes()">
+          Navettes
+        </button>
+        <div class="separateurs">|</div>
+        <button>
+          <a href="img/val_cenis_plan_pistes.jpg" download="plan.jpg"
+            >Téléchargez le Plan</a
+          >
+        </button>
+      </nav>
+    </header>
+    <main>
+      <div id="meal-container">
+        <div id="nextmeal"></div>
+        <div id="mealList"></div>
+        <button id="mealListButton" onclick="afficheMealList()">
+          voir plus de repas
+        </button>
+        <button id="mealListButtonCache" onclick="chacheMealList()">
+          voir moins de repas
+        </button>
+      </div>
+
+      <div id="activities-container">
+        <div id="activitiesList"></div>
+      </div>
+
+      <div id="navettes-container">
+        <nav id="sous-nav">
+          <button id="aller" onclick="afficheSousNavAller()" class="active">
+            Termignon - Lanslevillard
+          </button>
+          <button id="retour" onclick="afficheSousNavRetour()">
+            Lanslevillard - Termignon
+          </button>
+        </nav>
+        <div id="Termignon-Lanslevillard">
+          <form>
+            <label for="arretAller">Choisir un arrêt</label>
+            <select name="arretAller" id="arretAller">
+              <option value="ecole">ecole</option>
+              <option value="pied_de_piste">pied_de_piste</option>
+              <option value="Edelweiss_Églises_Flambeau_Ramasse_Pharmacie">
+                Edelweiss_Églises_Flambeau_Ramasse_Pharmacie
+              </option>
+              <option value="Office_de_Tourisme">Office_de_Tourisme</option>
+              <option value="Pont_du_Folgoët">Pont_du_Folgoët</option>
+              <option value="Plan_des_Champs">Plan_des_Champs</option>
+              <option value="Télécabine_du_Vieux_Moulin">
+                Télécabine_du_Vieux_Moulin
+              </option>
+              <option value="École_de_Ski">École_de_Ski</option>
+              <option value="Mairie_Fromagerie_Pont_Abribus">
+                Mairie_Fromagerie_Pont_Abribus
+              </option>
+              <option value="Télécabine_Val_Cenis_le_Haut">
+                Télécabine_Val_Cenis_le_Haut
+              </option>
+              <option value="Terres_Grasses">Terres_Grasses</option>
+            </select>
+          </form>
+          <div id="arretAllerList"></div>
+        </div>
+        <div id="Lanslevillard-Termignon">
+          <form>
+            <label for="arretRetour">Choisir un arrêt</label>
+            <select name="arretRetour" id="arretRetour">
+              <option value="Terres_Grasses">Terres_Grasses</option>
+              <option value="Télécabine_Val_Cenis_le_Haut">
+                Télécabine_Val_Cenis_le_Haut
+              </option>
+              <option value="Pont_Abribus_Camping">Pont_Abribus_Camping</option>
+              <option value="Télécabine_du_Vieux_Moulin">
+                Télécabine_du_Vieux_Moulin
+              </option>
+              <option value="Plan_des_Champs">Plan_des_Champs</option>
+              <option value="Pont_du_Folgoët">Pont_du_Folgoët</option>
+              <option value="Office_de_Tourisme">Office_de_Tourisme</option>
+              <option value="Pharmacie_Ramasse_Flambeau_Églises_Edelweiss">
+                Pharmacie_Ramasse_Flambeau_Églises_Edelweiss
+              </option>
+              <option value="ecole">ecole</option>
+              <option value="pied_de_piste">pied_de_piste</option>
+            </select>
+          </form>
+        </div>
+        <!-- <div id="navettesList">
+          <h2>Les navettes ne sont pas encore disponible sur ce site</h2>
+        </div> -->
+        <a href="img/A4_LIGNE_C1_Hiver-23-24-1.pdf" target="_blank">
+          Cliquez ici pour consultez les horaires des navettes
+        </a>
+      </div>
+    </main>
+  </body>
+  <script>
+    // nav bar
+    const nextmealButton = document.getElementById("nextmealButton");
+    const nextactivitiesButton = document.getElementById(
+      "nextactivitiesButton"
+    );
+    const navettesButton = document.getElementById("navettesButton");
+
+    // meal container
+
+    const mealContainer = document.getElementById("meal-container"); // meal container
+    const nextmealElement = document.getElementById("nextmeal"); // next meal
+    const mealListElement = document.getElementById("mealList"); // meal list
+    const mealListButton = document.getElementById("mealListButton"); // meal list button
+    const mealListButtonCache = document.getElementById("mealListButtonCache"); // meal list button cache
+
+    // activities container
+
+    const activitiesContainer = document.getElementById("activities-container"); // activities container
+
+    // navettes container
+
+    const navettesContainer = document.getElementById("navettes-container"); // navettes container
+    const sousNavAller = document.getElementById("aller"); // sous nav
+    const sousNavRetour = document.getElementById("retour"); // sous nav
+    const TermignonLanslevillard = document.getElementById(
+      "Termignon-Lanslevillard"
+    ); // Termignon-Lanslevillard
+    const LanslevillardTermignon = document.getElementById(
+      "Lanslevillard-Termignon"
+    ); // Lanslevillard-Termignon
+
+    // affiche page header
+
+    function afficheNextMeal() {
+      nextmealButton.classList.add("active");
+      nextactivitiesButton.classList.remove("active");
+      navettesButton.classList.remove("active");
+      mealContainer.style.display = "flex";
+      activitiesContainer.style.display = "none";
+      navettesContainer.style.display = "none";
+      changeURL("repas");
+    }
+
+    function afficheNextActivites() {
+      nextactivitiesButton.classList.add("active");
+      nextmealButton.classList.remove("active");
+      navettesButton.classList.remove("active");
+      activitiesContainer.style.display = "block";
+      mealContainer.style.display = "none";
+      navettesContainer.style.display = "none";
+      changeURL("activites");
+    }
+
+    function afficheNavettes() {
+      navettesButton.classList.add("active");
+      nextmealButton.classList.remove("active");
+      nextactivitiesButton.classList.remove("active");
+      navettesContainer.style.display = "flex";
+      mealContainer.style.display = "none";
+      activitiesContainer.style.display = "none";
+      changeURL("navettes");
+    }
+
+    // affiche meal list
+
+    function afficheMealList() {
+      mealListElement.style.display = "flex";
+      nextmealElement.style.display = "none";
+      mealListButton.style.display = "none";
+      mealListButtonCache.style.display = "block";
+    }
+
+    function chacheMealList() {
+      mealListElement.style.display = "none";
+      nextmealElement.style.display = "block";
+      mealListButton.style.display = "block";
+      mealListButtonCache.style.display = "none";
+    }
+
+    // affiche sous nav
+
+    function afficheSousNavAller() {
+      sousNavAller.classList.add("active");
+      sousNavRetour.classList.remove("active");
+      TermignonLanslevillard.style.display = "block";
+      LanslevillardTermignon.style.display = "none";
+    }
+
+    function afficheSousNavRetour() {
+      sousNavRetour.classList.add("active");
+      sousNavAller.classList.remove("active");
+      LanslevillardTermignon.style.display = "block";
+      TermignonLanslevillard.style.display = "none";
+    }
+
+    // recup l'arrêt choisi dans le sens aller
+
+    const arretAller = document.getElementById("arretAller").value;
+    const arretAllerList = document.getElementById("arretAllerList");
+
+    arretAller.addEventListener("change", (e) => {
+      fetchArretAller(arretAller);
+    });
+
+    function fetchArretAller(arret) {
+      fetch("navettes.json")
+        .then((response) => response.json())
+        .then((data) => {
+          let currentTime = new Date();
+          let currentMinutes =
+            currentTime.getHours() * 60 + currentTime.getMinutes();
+
+          data.navettes[arret].forEach((horaire) => {
+            horaire = horaire.filter((time) => {
+              let [hours, minutes] = time.split(":").map(Number);
+              let timeInMinutes = hours * 60 + minutes;
+              return timeInMinutes >= currentMinutes;
+            });
+
+            arretAllerList.innerHTML = "";
+            horaire.forEach((time) => {
+              arretAllerList.innerHTML += `
+                <div>
+                  <h2>${time}</h2>
+                </div>
+                `;
+            });
+            arretAllerList.innerHTML += `
+              <a href="img/A4_LIGNE_C1_Hiver-23-24-1.pdf" target="_blank">
+                bonjour
+              </a>
+              `;
+          });
+        })
+        .catch((error) => console.error("Erreur : " + error));
+    }
+
+    function changeURL(page) {
+      history.replaceState(null, "", `?page=${page}`);
+    }
+  </script>
+  <script async>
+    // recup le get dans l'url pour afficher la page souhaité
+
+    const url = new URL(window.location.href);
+    const page = url.searchParams.get("page");
+
+    if (page === "activites") {
+      afficheNextActivites();
+    } else if (page === "navettes") {
+      afficheNavettes();
+    } else {
+      afficheNextMeal();
+    }
+
+    // change de page dans la nav a partir du swipe sur mobile
+    // TODO : verifier si le swipe est possible sur mobile
+
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    const gestureZone = document.getElementById("nav");
+
+    gestureZone.addEventListener("touchstart", function (event) {
+      touchstartX = event.changedTouches[0].screenX;
+    });
+
+    gestureZone.addEventListener("touchend", function (event) {
+      touchendX = event.changedTouches[0].screenX;
+      handleGesture();
+    });
+
+    function handleGesture() {
+      if (touchendX <= touchstartX) {
+        if (page === "repas") {
+          afficheNextActivites();
+        } else if (page === "activites") {
+          afficheNavettes();
+        } else {
+          afficheNextMeal();
+        }
+      }
+
+      if (touchendX >= touchstartX) {
+        if (page === "navettes") {
+          afficheNextActivites();
+        } else if (page === "activites") {
+          afficheNextMeal();
+        } else {
+          afficheNavettes();
+        }
+      }
+    }
+  </script>
+</html>

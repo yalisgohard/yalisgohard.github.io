@@ -1,5 +1,5 @@
 function loadRepas() {
-  fetch("ski/repas.json")
+  fetch("source/repas.json")
     .then((response) => response.json())
     .then((data) => {
       data.repasts.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -28,7 +28,7 @@ function loadRepas() {
 }
 
 function loadActivites() {
-  fetch("ski/activites.json")
+  fetch("source/activites.json")
     .then((response) => response.json())
     .then((data) => {
       data.activities.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -53,7 +53,7 @@ function loadActivites() {
 }
 
 function loadNavettes(arret) {
-  fetch("ski/navettes.json")
+  fetch("source/navettes.json")
     .then((response) => response.json())
     .then((data) => {
       const currentDate = new Date();
