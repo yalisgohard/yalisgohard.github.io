@@ -38,12 +38,12 @@ header {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    box-shadow: 0 0 0 0 #111;
+    box-shadow: 0 0 0 0 #112;
 }
 
 nav {
     width: 100%;
-    background-color: #333;
+    background-color: #334;
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -58,6 +58,10 @@ nav {
     top: -10px;
     position: relative;
     animation: sousnav 0.5s ease-in-out;
+}
+
+#sous-nav button.active {
+    background-color: #445;
 }
 
 @keyframes sousnav {
@@ -78,10 +82,11 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    width: 100%;
 }
 
 button {
-    background-color: #333;
+    background-color: #334;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -100,11 +105,11 @@ button a {
 }
 
 button:hover {
-    background-color: #444;
+    background-color: #445;
 }
 
 button.active {
-    background-color: #555;
+    background-color: #454565;
 }
 
 #meal-container {
@@ -115,7 +120,7 @@ button.active {
 }
 
 #mealListButton {
-    margin: 30px;
+    margin: 0px;
 }
 
 #mealListButtonCache {
@@ -137,12 +142,13 @@ button.active {
     align-items: stretch;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 20px;
 }
 
 .meal {
-    margin-top: 20px;
     width: 320px;
     border: solid 1px #ddd;
+    text-shadow: #fff 0px 0px 18px;
     border-radius: 25px;
     padding: 25px;
     backdrop-filter: blur(3px);
@@ -223,6 +229,14 @@ button.active {
 }
 
 #navettes-container {
+    display: none;
+    width: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 30px;
+}
+
+#Lanslevillard-Termignon {
     display: none;
 }
 
