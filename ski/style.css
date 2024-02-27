@@ -53,6 +53,14 @@ nav {
     gap: 20px;
 }
 
+#titrePage {
+    display: flex;
+    flex-direction: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
 #sous-nav {
     width: 100%;
     top: -10px;
@@ -186,14 +194,15 @@ button.active {
 }
 
 #activitiesList {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
+    padding: 20px;
 }
 
 .activity {
-    margin-top: 20px;
     width: 320px;
     border: solid 1px #ddd;
     border-radius: 25px;
@@ -239,6 +248,7 @@ button.active {
 #Lanslevillard-Termignon {
     display: none;
 }
+
 
 @media (max-width: 768px) {
 

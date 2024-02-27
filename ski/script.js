@@ -66,7 +66,6 @@ function loadNavettes(arret) {
 function generateMealHTML(meal) {
   const formattedDate = new Date(meal.date).toLocaleString("fr-FR", {
     weekday: "long",
-    year: "numeric",
     month: "long",
     day: "numeric",
     hour: "numeric",
@@ -91,7 +90,6 @@ function generateMealHTML(meal) {
 function generateActivityHTML(activity) {
   const formattedDate = new Date(activity.date).toLocaleString("fr-FR", {
     weekday: "long",
-    year: "numeric",
     month: "long",
     day: "numeric",
     hour: "numeric",
