@@ -52,17 +52,6 @@ function loadActivites() {
     );
 }
 
-function loadNavettes(arret) {
-  fetch("source/navettes.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const currentDate = new Date();
-    })
-    .catch((error) =>
-      console.error("Erreur de chargement du fichier JSON:", error)
-    );
-}
-
 function generateMealHTML(meal) {
   const formattedDate = new Date(meal.date).toLocaleString("fr-FR", {
     weekday: "long",

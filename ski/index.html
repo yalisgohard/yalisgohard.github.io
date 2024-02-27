@@ -70,56 +70,64 @@
           <form>
             <label for="arretAller">Choisir un arrêt</label>
             <select name="arretAller" id="arretAller">
-              <option value="ecole">ecole</option>
-              <option value="pied_de_piste">pied_de_piste</option>
+              <option value="ecole">École</option>
+              <option value="pied_de_piste">pied de piste</option>
               <option value="Edelweiss_Églises_Flambeau_Ramasse_Pharmacie">
-                Edelweiss_Églises_Flambeau_Ramasse_Pharmacie
+                Edelweiss Églises Flambeau Ramasse Pharmacie
               </option>
-              <option value="Office_de_Tourisme">Office_de_Tourisme</option>
-              <option value="Pont_du_Folgoët">Pont_du_Folgoët</option>
-              <option value="Plan_des_Champs">Plan_des_Champs</option>
+              <option value="Office_de_Tourisme">Office de Tourisme</option>
+              <option value="Pont_du_Folgoët">Pont du Folgoët</option>
+              <option value="Plan_des_Champs">Plan des Champs</option>
               <option value="Télécabine_du_Vieux_Moulin">
-                Télécabine_du_Vieux_Moulin
+                Télécabine du Vieux Moulin
               </option>
-              <option value="École_de_Ski">École_de_Ski</option>
+              <option value="École_de_Ski">École de Ski</option>
               <option value="Mairie_Fromagerie_Pont_Abribus">
-                Mairie_Fromagerie_Pont_Abribus
+                Mairie Fromagerie Pont Abribus
               </option>
               <option value="Télécabine_Val_Cenis_le_Haut">
-                Télécabine_Val_Cenis_le_Haut
+                Télécabine Val Cenis le Haut
               </option>
-              <option value="Terres_Grasses">Terres_Grasses</option>
+              <option value="Terres_Grasses">Terres Grasses</option>
             </select>
           </form>
-          <div id="arretAllerList"></div>
+          <h2>Prochaines navettes :</h2>
+          <form id="arretAllerList"></form>
+          <h2>arrets desservi</h2>
+          <div id="resultAllerList"></div>
         </div>
         <div id="Lanslevillard-Termignon">
           <form>
             <label for="arretRetour">Choisir un arrêt</label>
             <select name="arretRetour" id="arretRetour">
-              <option value="Terres_Grasses">Terres_Grasses</option>
+              <option value="Terres_Grasses">Terres Grasses</option>
               <option value="Télécabine_Val_Cenis_le_Haut">
-                Télécabine_Val_Cenis_le_Haut
+                Télécabine Val Cenis le Haut
               </option>
-              <option value="Pont_Abribus_Camping">Pont_Abribus_Camping</option>
+              <option value="Pont_Abribus_Camping">Pont Abribus Camping</option>
               <option value="Télécabine_du_Vieux_Moulin">
-                Télécabine_du_Vieux_Moulin
+                Télécabine du Vieux Moulin
               </option>
-              <option value="Plan_des_Champs">Plan_des_Champs</option>
-              <option value="Pont_du_Folgoët">Pont_du_Folgoët</option>
-              <option value="Office_de_Tourisme">Office_de_Tourisme</option>
+              <option value="Plan_des_Champs">Plan des Champs</option>
+              <option value="Pont_du_Folgoët">Pont du Folgoët</option>
+              <option value="Office_de_Tourisme">Office de Tourisme</option>
               <option value="Pharmacie_Ramasse_Flambeau_Églises_Edelweiss">
-                Pharmacie_Ramasse_Flambeau_Églises_Edelweiss
+                Pharmacie Ramasse Flambeau Églises Edelweiss
               </option>
-              <option value="ecole">ecole</option>
-              <option value="pied_de_piste">pied_de_piste</option>
+              <option value="ecole">École</option>
+              <option value="pied_de_piste">pied de piste</option>
             </select>
           </form>
+          <h2>Prochaines navettes :</h2>
+          <form id="arretRetourList"></form>
+          <h2>arrets desservi</h2>
+          <div id="resultRetourList"></div>
         </div>
-        <!-- <div id="navettesList">
-          <h2>Les navettes ne sont pas encore disponible sur ce site</h2>
-        </div> -->
-        <a href="img/A4_LIGNE_C1_Hiver-23-24-1.pdf" target="_blank">
+        <a
+          href="img/A4_LIGNE_C1_Hiver-23-24-1.pdf"
+          target="_blank"
+          id="lienNavettes"
+        >
           Cliquez ici pour consultez les horaires des navettes
         </a>
       </div>
@@ -167,6 +175,8 @@
       activitiesContainer.style.display = "none";
       navettesContainer.style.display = "none";
       changeURL("repas");
+      url = new URL(window.location.href);
+      page = url.searchParams.get("page");
     }
 
     function afficheNextActivites() {
@@ -177,6 +187,8 @@
       mealContainer.style.display = "none";
       navettesContainer.style.display = "none";
       changeURL("activites");
+      url = new URL(window.location.href);
+      page = url.searchParams.get("page");
     }
 
     function afficheNavettes() {
@@ -187,6 +199,8 @@
       mealContainer.style.display = "none";
       activitiesContainer.style.display = "none";
       changeURL("navettes");
+      url = new URL(window.location.href);
+      page = url.searchParams.get("page");
     }
 
     // affiche meal list
@@ -221,48 +235,6 @@
       TermignonLanslevillard.style.display = "none";
     }
 
-    // recup l'arrêt choisi dans le sens aller
-
-    const arretAller = document.getElementById("arretAller");
-    const arretAllerList = document.getElementById("arretAllerList");
-
-    arretAller.addEventListener("change", (e) => {
-      fetchArretAller(arretAller.value);
-    });
-
-    function fetchArretAller(arret) {
-      fetch("navettes.json")
-        .then((response) => response.json())
-        .then((data) => {
-          let currentTime = new Date();
-          let currentMinutes =
-            currentTime.getHours() * 60 + currentTime.getMinutes();
-
-          data.navettes[arret].forEach((horaire) => {
-            horaire = horaire.filter((time) => {
-              let [hours, minutes] = time.split(":").map(Number);
-              let timeInMinutes = hours * 60 + minutes;
-              return timeInMinutes >= currentMinutes;
-            });
-
-            arretAllerList.innerHTML = "";
-            horaire.forEach((time) => {
-              arretAllerList.innerHTML += `
-                <div>
-                  <h2>${time}</h2>
-                </div>
-                `;
-            });
-            arretAllerList.innerHTML += `
-              <a href="img/A4_LIGNE_C1_Hiver-23-24-1.pdf" target="_blank">
-                bonjour
-              </a>
-              `;
-          });
-        })
-        .catch((error) => console.error("Erreur : " + error));
-    }
-
     function changeURL(page) {
       history.replaceState(null, "", `?page=${page}`);
     }
@@ -281,29 +253,33 @@
       afficheNextMeal();
     }
 
-    // change de page dans la nav a partir du swipe sur mobile
-    // TODO : verifier si le swipe est possible sur mobile
-
-    let touchstartX = 0;
-    let touchendX = 0;
+    let touchstart = { x: 0, y: 0 };
+    let touchend = { x: 0, y: 0 };
 
     const gestureZone = document.querySelector("body");
 
     gestureZone.addEventListener("touchstart", function (event) {
-      touchstartX = event.changedTouches[0].screenX;
+      touchstart.x = event.changedTouches[0].screenX;
+      touchstart.y = event.changedTouches[0].screenY;
     });
 
     gestureZone.addEventListener("touchend", function (event) {
-      touchendX = event.changedTouches[0].screenX;
+      touchend.x = event.changedTouches[0].screenX;
+      touchend.y = event.changedTouches[0].screenY;
       handleGesture();
-      touchstartX = 0;
-      touchendX = 0;
+      touchstart = { x: 0, y: 0 };
+      touchend = { x: 0, y: 0 };
       url = new URL(window.location.href);
       page = url.searchParams.get("page");
     });
 
     function handleGesture() {
-      if (touchendX - touchstartX > 150) {
+      // if scroll down or up return
+      if (touchend.y - touchstart.y > 50 || touchend.y - touchstart.y < -50) {
+        return;
+      }
+
+      if (touchend.x - touchstart.x > 25) {
         switch (page) {
           case "navettes":
             afficheNextActivites();
@@ -315,7 +291,7 @@
             afficheNavettes();
             break;
         }
-      } else if (touchendX - touchstartX < -150) {
+      } else if (touchend.x - touchstart.x < -25) {
         switch (page) {
           case "navettes":
             afficheNextMeal();
@@ -329,5 +305,128 @@
         }
       }
     }
+
+    // recup l'arrêt choisi dans le sens aller
+
+    const arretAller = document.getElementById("arretAller");
+    const arretAllerList = document.getElementById("arretAllerList");
+    const resultAllerList = document.getElementById("resultAllerList");
+
+    arretAller.addEventListener("change", (e) => {
+      fetchArretAller(arretAller.value);
+    });
+
+    fetchArretAller(arretAller.value);
+
+    function fetchArretAller(arret) {
+      fetch("source/navettes.json")
+        .then((response) => response.json())
+        .then((data) => {
+          resultAllerList.innerHTML = "";
+          let heureActuelle = new Date().toLocaleTimeString("fr-FR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+
+          let horaire = data.navettes.Termignon_Lanslevillard[arret].filter(
+            (heure) => {
+              return heure > heureActuelle;
+            }
+          );
+
+          if (horaire.length === 0) {
+            arretAllerList.innerHTML =
+              "<p>Il n'y a plus de navette pour cet arrêt</p>";
+          } else {
+            arretAllerList.innerHTML = "";
+            horaire.forEach((element) => {
+              arretAllerList.innerHTML += `<input type="radio" id="h${element}" name="arret" class="heureNavetteRadio" value="${element}" />`;
+              arretAllerList.innerHTML += `<label for="h${element}" class="heureNavette">${element}</label>`;
+            });
+          }
+        })
+        .catch((error) => console.error("Erreur : " + error));
+    }
+
+    // retour
+
+    const arretRetour = document.getElementById("arretRetour");
+    const arretRetourList = document.getElementById("arretRetourList");
+    const resultRetourList = document.getElementById("resultRetourList");
+
+    arretRetour.addEventListener("change", (e) => {
+      fetchArretRetour(arretRetour.value);
+    });
+
+    fetchArretRetour(arretRetour.value);
+
+    function fetchArretRetour(arret) {
+      fetch("source/navettes.json")
+        .then((response) => response.json())
+        .then((data) => {
+          resultRetourList.innerHTML = "";
+          let heureActuelle = new Date().toLocaleTimeString("fr-FR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+
+          let horaire = data.navettes.Lanslevillard_Termignon[arret].filter(
+            (heure) => {
+              return heure > heureActuelle;
+            }
+          );
+
+          if (horaire.length === 0) {
+            arretRetourList.innerHTML =
+              "<p>Il n'y a plus de navette pour cet arrêt</p>";
+          } else {
+            arretRetourList.innerHTML = "";
+            horaire.forEach((element) => {
+              arretRetourList.innerHTML += `<p class="heureNavette">${element}</p>`;
+            });
+          }
+        })
+        .catch((error) => console.error("Erreur : " + error));
+    }
+
+    // TODO: ajouter la recupération des prochains arrets en fonction de l'arret et de l'heure séléctionné
+    // il faut que ce soit un tableau avec a gauche le nom de l'arret et a droite l'heure de passage
+
+    function fetchNextArretAller(arret, heure) {
+      fetch("source/navettes.json")
+        .then((response) => response.json())
+        .then((data) => {
+          let dico = data.navettes.Termignon_Lanslevillard;
+
+          // récuperer l'indice de l'heure dans le tableau navettes.json
+
+          let indice = dico[arret].indexOf(heure);
+
+          // faire le filtre pour que l'heure soit supérieur a l'heure séléctionné et que l'heure soit au même indice
+
+          let dicoHoraire = Object.keys(dico).reduce((acc, key) => {
+            if (dico[key][indice] > heure) {
+              acc[key] = dico[key][indice];
+            }
+            return acc;
+          }, {});
+
+          alert(JSON.stringify(dicoHoraire));
+
+          if (dicoHoraire.length === 0) {
+            resultAllerList.innerHTML =
+              "<p>Il n'y a plus de navette pour cet arrêt</p>";
+          } else {
+            resultAllerList.innerHTML = "";
+            // parcourir le dico pour afficher a gauche la clé et a droite la valeure
+            for (let key in dico) {
+              resultAllerList.innerHTML += `<p>${key} : ${dico[key]}</p>`;
+            }
+          }
+        })
+        .catch((error) => console.error("Erreur : " + error));
+    }
+
+    // fetchNextArretAller("ecole", "09:00");
   </script>
 </html>

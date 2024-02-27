@@ -93,6 +93,10 @@ main {
     width: 100%;
 }
 
+option {
+    text-transform: capitalize;
+}
+
 button {
     background-color: #334;
     color: #fff;
@@ -249,6 +253,68 @@ button.active {
     display: none;
 }
 
+#Termignon-Lanslevillard,
+#Lanslevillard-Termignon {
+    width: min-content;
+    border: solid 1px #ddd;
+    text-shadow: #fff 0px 0px 18px;
+    font-weight: 500;
+    border-radius: 25px;
+    padding: 46px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.33);
+    animation: enter 0.5s ease-in-out;
+}
+
+#lienNavettes {
+    background-color: #334;
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 20px;
+    text-decoration: none;
+    position: relative;
+
+}
+
+#arretAllerList,
+#arretRetourList {
+    display: flex;
+    flex-direction: row wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.heureNavette {
+    width: min-content;
+    border: solid 1px #ddd;
+    text-shadow: #fff 0px 0px 18px;
+    font-weight: 500;
+    border-radius: 25px;
+    padding: 12px 16px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.33);
+    animation: enter 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.heureNavette:hover {
+    color: #55f;
+    border-color: #55f;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input:checked+label.heureNavette {
+    color: #55f;
+    border-color: #55f;
+}
+
 
 @media (max-width: 768px) {
 
@@ -282,5 +348,13 @@ button.active {
 
     .separateurs {
         display: none;
+    }
+
+    button:hover {
+        background-color: #334;
+    }
+
+    button.active:hover {
+        background-color: #454565;
     }
 }
