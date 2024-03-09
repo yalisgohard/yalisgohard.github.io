@@ -568,4 +568,34 @@ section#rsvp .lien-cta:hover {
         z-index: 999;
     }
 
+    section#hero h1 {
+        margin: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: start;
+    }
+
+    section#hero h1 span#insert-prenom {
+        font-size: 4rem;
+        left: 0;
+    }
+
+    section#conditions h2 {
+        left: 0;
+    }
+
+    section#conditions ul {
+        flex-flow: column nowrap;
+        gap: 32px;
+    }
+
+    section#rsvp {
+        gap: 32px;
+    }
+
+    section#rsvp form .text-container {
+        display: flex;
+        flex-flow: column-reverse nowrap;
+        gap: 16px;
+    }
 }
