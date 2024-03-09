@@ -598,4 +598,8 @@ section#rsvp .lien-cta:hover {
         flex-flow: column-reverse nowrap;
         gap: 16px;
     }
+
+    section#rsvp .lien-cta {
+        width: min-content;
+    }
 }
