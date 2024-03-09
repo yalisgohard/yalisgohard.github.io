@@ -116,7 +116,6 @@ div#bg .ellipse#e8 {
     left: 23%;
 }
 
-
 nav ul {
     display: flex;
     flex-flow: row nowrap;
@@ -498,4 +497,75 @@ section#rsvp .lien-cta a {
 
 section#rsvp .lien-cta:hover {
     background-color: #00d0ff35;
+}
+
+#nav-mobile {
+    display: none;
+    width: 32px;
+    height: 40px;
+    position: relative;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#nav-mobile span {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+@media (max-width: 800px) {
+
+    #logo {
+        z-index: 999;
+    }
+
+    #logo::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(12px);
+        z-index: -1;
+    }
+
+    nav {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100dvh;
+        top: -100dvh;
+        left: 0;
+        font-size: 2rem;
+        background-color: #000010;
+        transition: top 1.2s ease-out;
+        z-index: 9;
+    }
+
+
+    nav.active {
+        top: 0dvh;
+    }
+
+
+    nav ul {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+    }
+
+    #nav-mobile {
+        display: flex;
+        z-index: 999;
+    }
+
 }
