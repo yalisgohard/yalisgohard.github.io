@@ -545,7 +545,7 @@ section#rsvp .lien-cta:hover {
         left: 0;
         font-size: 2rem;
         background-color: #000010;
-        transition: top 1.2s ease-out;
+        transition: top .9s ease-out;
         z-index: 9;
     }
 
