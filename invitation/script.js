@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.utils.toArray(".ellipse").forEach((layer) => {

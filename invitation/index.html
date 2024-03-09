@@ -69,6 +69,12 @@
         <form action="https://formspree.io/f/xyyrppzk" method="POST">
           <div class="text-container">
             <p>je ne viens pas</p>
+            <input
+              type="hidden"
+              name="prenom"
+              id="inputprenom"
+              value="invite"
+            />
             <input name="check" id="check" type="checkbox" checked />
             <label for="check"></label>
             <p>je viens</p>
@@ -127,6 +133,7 @@
     // si le prénom est dans l'url, on le remplace dans le titre
     if (prenom) {
       document.getElementById("insert-prenom").innerText = prenom;
+      document.getElementById("inputprenom").value = prenom;
     } else {
       document.getElementById("insert-prenom").innerText = "invité.e";
     }
