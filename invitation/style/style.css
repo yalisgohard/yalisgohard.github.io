@@ -348,6 +348,7 @@ section#conditions ul li {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    flex: 1;
     gap: 32px;
 }
 
@@ -606,4 +607,18 @@ section#rsvp .lien-cta:hover {
     section#rsvp .lien-cta {
         width: min-content;
     }
+}
+
+@media (max-height: 777px) {
+    section#conditions ul li {
+        flex-flow: row nowrap;
+        gap: 16px;
+        padding: 32px 16px;
+    }
+
+    section#conditions ul li img {
+        width: unset;
+        height: 50px;
+    }
+
 }

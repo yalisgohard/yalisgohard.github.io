@@ -24,7 +24,7 @@ gsap.utils.toArray(".card img").forEach((card, index) => {
     },
     {
       scrollTrigger: {
-        trigger: card,
+        trigger: ".conditions-container",
         scroller: "main",
         start: "top center",
         toggleActions: "restart none none none",
