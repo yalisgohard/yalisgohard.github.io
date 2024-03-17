@@ -518,6 +518,10 @@ section#rsvp .lien-cta:hover {
 
 @media (max-width: 800px) {
 
+    main {
+        scroll-snap-type: y none;
+    }
+
     #logo {
         z-index: 999;
     }
