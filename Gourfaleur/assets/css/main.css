@@ -855,6 +855,14 @@ footer .footer-container ul li a:hover {
         --padding-card: 25px;
     }
 
+    main #hero-section::before {
+        display: none;
+    }
+    
+    main #hero-section::after {
+        display: none;
+    }
+
     header {
         justify-content: center;
         width: 100dvw;
