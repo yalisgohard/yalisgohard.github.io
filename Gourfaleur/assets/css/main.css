@@ -23,26 +23,31 @@
 @font-face {
     font-family: "Carattere";
     src: url("../fonts/Carattere/Carattere-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "DM Sans";
     src: url("../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Handlee";
     src: url("../fonts/Handlee/Handlee-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Oswald";
     src: url("../fonts/Oswald/Oswald-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Source Sans 3";
     src: url("../fonts/Source_Sans_3/SourceSans3-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
 }
 
 html{
