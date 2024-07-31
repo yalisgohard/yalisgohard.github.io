@@ -196,7 +196,7 @@ main #hero-section::before {
     height: 100dvh;
     background: transparent;
     background: linear-gradient(0deg, rgba(0,16,22,1) 0%, rgba(0,0,0,0) 20%);
-    o
+    overflow: hidden;
 }
 
 main #hero-section::after {
@@ -208,6 +208,7 @@ main #hero-section::after {
     width: 100dvw;
     height: calc(100% - 100dvh);
     background: rgba(0,16,22,1);
+    overflow: hidden;
 }
 
 
