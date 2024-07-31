@@ -45,7 +45,12 @@
     src: url("../fonts/Source_Sans_3/SourceSans3-VariableFont_wght.ttf") format("truetype");
 }
 
-html,
+html{
+    position: relative;
+    width: 100dvw;
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-text);
     background-color: var(--Background-color);
