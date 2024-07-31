@@ -423,7 +423,7 @@ footer .footer-container ul li a:hover {
     }
     
     #paiement {
-        flex-flow: row wrap;
+        flex-flow: row wrap!important;
     }
 
     #menu img {
@@ -438,7 +438,7 @@ footer .footer-container ul li a:hover {
     }
 
     #contact .phone-container #number {
-        font-size: 2.5rem;
+        font-size: 2.5rem!important;
     }
 
     #contact .email-container #email {
