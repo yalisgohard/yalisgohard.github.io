@@ -1,0 +1,73 @@
+
+/*------ Second Card ------*/
+
+main section.card-container:last-child {
+    position: relative;
+    margin-bottom: 0;
+    padding: 64px var(--padding-card) 64px var(--padding-card);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    justify-items: center;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 50px;
+}
+
+/*-----   infos  -----*/
+
+#infos {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    list-style: none;
+}
+
+#infos li {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-family: var(--font-title);
+}
+
+/*-----   avis   -----*/
+
+#avis {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    font-size: 2rem;
+    font-family: var(--font-title);
+}
+
+#avis a {
+    display: grid;
+    place-content: center;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--cta-color);
+    font-size: 1.5rem;
+    padding: 10px 40px;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
+}
+
+#avis a:hover {
+    background-color: #ad8200;
+}
+
+/*----- paiement -----*/
+
+#paiement {
+    grid-column: 1 / 3;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    list-style: none;
+    scale: .8;
+}
