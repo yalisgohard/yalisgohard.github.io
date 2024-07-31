@@ -50,7 +50,7 @@
                 <a href="#map-container">Nous Trouver</a>
             </div>
             
-            <video autoplay data-bg-video loop muted playsinline preload="auto" poster="./assets/media/2359.avif" >
+            <video data-bg-video loop muted playsinline preload="none" poster="./assets/media/2359.avif" >
                 <source src="./assets/media/0730 (v3).mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
@@ -250,14 +250,9 @@
     <!-- Play the video -->
     <script defer>
         const video = document.querySelector('[data-bg-video]');
-        video.muted = true;
-        video.loop = true;
-
-
         window.onload = () => {
             video.play();
         }
-
     </script>
     
 </body>
