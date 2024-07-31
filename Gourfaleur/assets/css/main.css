@@ -232,7 +232,7 @@ main section.card-container {
 }
 
 main section.card-container span{
-    color: var(--cta-color);
+    color: #ffc000; /* var(--cta-color); */
 }
 
 
@@ -571,6 +571,7 @@ main section.card-container #menu {
     flex-flow: row nowrap;
     gap: 10px;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 #contact .phone-container a img {
