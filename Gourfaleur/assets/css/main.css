@@ -232,7 +232,7 @@ main section.card-container {
 }
 
 main section.card-container span{
-    color: #ffc000; /* var(--cta-color); */
+    color: var(--cta-color);
 }
 
 
@@ -499,6 +499,8 @@ main section.card-container #menu {
     right: -150px;
     position: absolute;
     filter: drop-shadow(0 0 10px #000);
+    width: 340px;
+    height: 400px;
 }
 /*-----    contact   -----*/
 
@@ -887,7 +889,7 @@ footer .footer-container ul li a:hover {
     }
 
     #menu img {
-        width: 300px;
+        scale: .8;
         position: absolute;
         right: -150px;
         bottom: 30px;
