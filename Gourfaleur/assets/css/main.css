@@ -205,7 +205,7 @@ main #hero-section::after {
     top: 100vh;
     left: 0;
     width: 100vw;
-    height: calc(100% - 100vh + 200px);
+    height: calc(100% - 100vh);
     background: rgba(0,16,22,1);
 }
 
