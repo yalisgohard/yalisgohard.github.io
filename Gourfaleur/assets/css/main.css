@@ -486,4 +486,10 @@ footer .footer-container ul li a:hover {
         display: none;
     }
 
+    
+    #contact .phone-container #number,
+    #contact .email-container #email {
+        font-size: 1.3rem!important;
+    }
+
 }
