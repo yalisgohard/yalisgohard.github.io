@@ -414,9 +414,9 @@ footer .footer-container ul li a:hover {
         --padding-card: 25px;
     }
 
-    header {
+    #header-container {
+        padding: 0;
         justify-content: center;
-        width: 100dvw;
     }
 
     header nav {
