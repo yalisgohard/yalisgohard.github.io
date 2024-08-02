@@ -63,6 +63,9 @@ body {
     width: 100dvw;
     overflow-x: hidden;
     position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 
 
@@ -72,13 +75,21 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 calc(var(--padding-main) + var(--padding-card));
     width: 100dvw;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, .2);
     z-index: 9999;
+    display: flex;
+    place-content: center;
+}
+
+#header-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0 calc(var(--padding-main) + var(--padding-card));
+    width: 100%;
+    max-width: 1700px;
 }
 
 header ul {
@@ -122,6 +133,7 @@ header ul li a.active {
 main {
     padding: 100px var(--padding-main);
     overflow-x: hidden;
+    max-width: 1700px;
 }
 
 /*------ Hero Section ------*/
@@ -233,6 +245,7 @@ footer {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    width: 100dvw;
 }
 
 footer .footer-container {
